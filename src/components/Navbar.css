@@ -618,19 +618,20 @@
 @media (max-width: 768px) {
   .navbar-wrapper {
     width: 95%;
-    top: 16px;
-    gap: 8px;
+    top: 12px;
+    gap: 6px;
   }
 
   .floating-menu-btn {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }
 
   .navbar.capsule {
     min-width: 0;
     width: 100%;
-    padding: 8px;
+    padding: 4px 8px;
+    height: 48px;
   }
   
   .navbar-wrapper:has(.search-container.capsule-search:hover) .navbar.capsule,
@@ -639,7 +640,12 @@
   }
   
   .capsule-left {
-    gap: 8px;
+    gap: 6px;
+  }
+  
+  .logo-circle {
+    width: 32px;
+    height: 32px;
   }
   
   .navbar-quick-links a {
