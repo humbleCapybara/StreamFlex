@@ -632,9 +632,19 @@
   }
 
   .navbar-wrapper {
-    width: 95%;
+    width: 98%;
     top: 12px;
     gap: 6px;
+  }
+
+  .side-menu {
+    width: 100vw;
+    left: -100vw;
+    padding: 24px;
+  }
+  
+  .side-menu.open {
+    left: 0;
   }
 
   .floating-menu-btn {
