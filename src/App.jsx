@@ -41,9 +41,17 @@ function App() {
                 const userObj = { ...account, localUserId: data.userId, sessionId, finalUsername: data.username };
                 setCurrentUser(userObj);
                 localStorage.setItem('currentUser', JSON.stringify(userObj));
+              } else {
+                console.warn('Backend sync failed, using local session');
+                const userObj = { ...account, sessionId };
+                setCurrentUser(userObj);
+                localStorage.setItem('currentUser', JSON.stringify(userObj));
               }
             } catch (err) {
               console.error('Failed to sync user to backend', err);
+              const userObj = { ...account, sessionId };
+              setCurrentUser(userObj);
+              localStorage.setItem('currentUser', JSON.stringify(userObj));
             }
           }
         }
