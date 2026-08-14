@@ -632,6 +632,7 @@
     width: 98%;
     top: 12px;
     gap: 6px;
+    justify-content: space-between;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
@@ -742,15 +743,12 @@
 
   .navbar.capsule {
     min-width: 0;
-    width: 100%;
-    padding: 4px 8px;
+    width: auto;
+    padding: 0 20px;
     height: 44px;
   }
   
-  .navbar-wrapper:has(.search-container.capsule-search:hover) .navbar.capsule,
-  .navbar-wrapper:has(.search-container.capsule-search:focus-within) .navbar.capsule {
-    min-width: 0;
-  }
+
   
   .capsule-left {
     gap: 6px;
