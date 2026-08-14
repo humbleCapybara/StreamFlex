@@ -275,15 +275,6 @@
   }
 }
 
-@media (max-width: 900px) {
-  .navbar.capsule {
-    width: 90%;
-    min-width: unset;
-  }
-  .capsule-center, .capsule-right {
-    display: none;
-  }
-}
 
 .search-text {
   color: var(--color-text-secondary);
