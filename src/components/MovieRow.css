@@ -1,0 +1,111 @@
+.movie-row-container {
+  margin: 20px 0 40px 0;
+  padding: 0 40px;
+}
+
+.row-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--color-text-primary);
+}
+
+.row-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.row-posters {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+.row-posters::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  border: 1px solid var(--color-glass-border);
+}
+
+.row-wrapper:hover .slider-btn {
+  opacity: 0.5; /* User requested opacity to be 0.5 */
+}
+
+.slider-btn:hover {
+  opacity: 0.8 !important;
+  background: var(--color-bg-secondary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.left {
+  left: -24px;
+}
+
+.slider-btn.right {
+  right: -24px;
+}
+
+.btn-like {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-glass);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-glass-border);
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.btn-like:hover {
+  background: var(--color-bg-secondary);
+  transform: scale(1.1);
+}
+
+.btn-like.liked {
+  background: var(--color-accent-red);
+  color: white;
+  border-color: var(--color-accent-red);
+}
+
+@media (max-width: 768px) {
+  .movie-row-container {
+    padding: 0 20px;
+  }
+  .poster-card {
+    min-width: 200px;
+    max-width: 200px;
+  }
+  .poster-img {
+    height: 120px;
+  }
+  .slider-btn {
+    display: none; /* Hide on mobile */
+  }
+}

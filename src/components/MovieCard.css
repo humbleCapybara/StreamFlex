@@ -1,0 +1,158 @@
+.poster-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background: var(--color-bg-tertiary);
+  display: flex;
+  flex-direction: column;
+}
+
+.poster-card.row-mode {
+  min-width: 220px;
+  max-width: 220px;
+}
+
+.poster-card.grid-mode {
+  width: 100%;
+}
+
+.poster-card:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.poster-img-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.row-mode .poster-img-container {
+  height: 330px;
+}
+
+.grid-mode .poster-img-container {
+  aspect-ratio: 2 / 3;
+}
+
+.poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poster-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.poster-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.movie-title {
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-text-primary);
+  flex: 1;
+}
+
+.poster-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-action-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--color-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-action-small:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-action-small.active-watch {
+  color: #a855f7;
+  border-color: #a855f7;
+}
+
+.btn-action-small.active-liked {
+  color: #f43f5e;
+  border-color: #f43f5e;
+}
+
+.movie-details {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  align-items: center;
+}
+
+.movie-rating {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.rating-good { color: #10b981; }
+.rating-decent { color: #f59e0b; }
+.rating-bad { color: #ef4444; }
+
+/* Bento specific overrides if needed, assuming bento classes handle it */
+.btn-bento-watchlist, .btn-bento-liked {
+  position: absolute;
+  top: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.btn-bento-watchlist { right: 10px; }
+.btn-bento-liked { right: 56px; }
+
+.bento-card:hover .btn-bento-watchlist,
+.bento-card:hover .btn-bento-liked {
+  opacity: 1;
+}
+
+.btn-bento-watchlist:hover,
+.btn-bento-liked:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.btn-bento-watchlist.active { color: #a855f7; opacity: 1; }
+.btn-bento-liked.active { color: #f43f5e; opacity: 1; }
