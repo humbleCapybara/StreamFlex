@@ -150,7 +150,8 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
         </div>
 
         <div className="capsule-right">
-          <div className="search-container capsule-search">
+          <div className={`search-backdrop ${isSearchFocused ? 'active' : ''}`} onPointerDown={() => setIsSearchFocused(false)}></div>
+          <div className={`search-container capsule-search ${isSearchFocused ? 'mobile-expanded' : ''}`}>
             <Search className="search-icon" size={18} />
             <input 
               type="text" 
