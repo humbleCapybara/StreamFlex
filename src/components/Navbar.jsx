@@ -144,6 +144,7 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
             </a>
           </div>
         </div>
+        </nav>
 
         <div className="capsule-right">
           <div className="search-container capsule-search desktop-only-search">
@@ -219,7 +220,6 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
             )}
           </div>
         </div>
-      </nav>
 
       <div className={`mobile-search-container ${isMobileSearchOpen ? 'expanded' : ''}`}>
         {!isMobileSearchOpen ? (
