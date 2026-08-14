@@ -96,7 +96,8 @@
   background-color: #1f1f1f;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 0 16px;
+  padding: 0;
+  justify-content: center;
   margin: 0;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   width: 56px;
@@ -109,6 +110,8 @@
 .search-container.capsule-search:hover, .search-container.capsule-search:focus-within {
   background-color: #2a2a2a;
   width: 240px;
+  padding: 0 16px;
+  justify-content: flex-start;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   cursor: text;
 }
@@ -116,12 +119,13 @@
 .search-icon {
   min-width: 16px;
   color: #a0a0a0;
-  transition: color 0.3s ease;
-  margin-right: 8px;
+  transition: all 0.3s ease;
+  margin-right: 0;
 }
 
 .search-container.capsule-search:hover .search-icon, .search-container.capsule-search:focus-within .search-icon {
   color: #fff;
+  margin-right: 8px;
 }
 
 .search-input {
