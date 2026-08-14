@@ -116,7 +116,8 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
 
 
   return (
-    <div className={`navbar-wrapper ${!isVisible ? 'hidden' : ''}`}>
+    <>
+      <div className={`navbar-wrapper ${!isVisible ? 'hidden' : ''}`}>
       <button 
         className="floating-menu-btn"
         onClick={() => setIsMenuOpen(true)}
@@ -222,6 +223,8 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
         </div>
       </nav>
 
+      </div>
+
       {/* Side Menu */}
       <div className={`side-menu-overlay ${isMenuOpen ? 'open' : ''}`} onClick={() => setIsMenuOpen(false)}></div>
       <div 
@@ -312,7 +315,7 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
           </li>
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 
