@@ -130,11 +130,6 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
       </button>
 
       <nav className="navbar capsule">
-        <div className="capsule-left">
-          <div className="logo-circle">
-            <Orbit size={24} color="#1a1a1a" strokeWidth={2.5} />
-          </div>
-        </div>
 
         <div className="capsule-center">
           <div className="navbar-quick-links">
