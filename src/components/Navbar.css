@@ -638,8 +638,8 @@
   }
 
   .side-menu {
-    width: 100vw;
-    left: -100vw;
+    width: 100%;
+    left: -110%;
     padding: 24px;
   }
   
