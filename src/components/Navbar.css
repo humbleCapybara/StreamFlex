@@ -595,6 +595,14 @@
   cursor: default;
 }
 
+.mobile-only-icon {
+  display: none;
+}
+
+.mobile-signup {
+  display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 900px) {
   .capsule-center {
@@ -607,6 +615,22 @@
 }
 
 @media (max-width: 768px) {
+  .mobile-only-icon {
+    display: block;
+  }
+  
+  .desktop-text {
+    display: none;
+  }
+  
+  .desktop-signup {
+    display: none;
+  }
+  
+  .mobile-signup {
+    display: block;
+  }
+
   .navbar-wrapper {
     width: 95%;
     top: 12px;

@@ -123,14 +123,14 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
 
         <div className="capsule-center">
           <div className="navbar-quick-links">
-            <a href="#movies" className={activeView === 'movies' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setActiveView('movies'); }}>
-              Movies
+            <a href="#movies" className={activeView === 'movies' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setActiveView('movies'); }} title="Movies">
+              <Film size={18} className="mobile-only-icon" /> <span className="desktop-text">Movies</span>
             </a>
-            <a href="#tvshows" className={activeView === 'tvShows' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setActiveView('tvShows'); }}>
-              TV Shows
+            <a href="#tvshows" className={activeView === 'tvShows' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setActiveView('tvShows'); }} title="TV Shows">
+              <Tv size={18} className="mobile-only-icon" /> <span className="desktop-text">TV Shows</span>
             </a>
-            <a href="#documentaries" className={activeView === 'documentaries' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setActiveView('documentaries'); }}>
-              Documentaries
+            <a href="#documentaries" className={activeView === 'documentaries' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setActiveView('documentaries'); }} title="Documentaries">
+              <Video size={18} className="mobile-only-icon" /> <span className="desktop-text">Documentaries</span>
             </a>
           </div>
         </div>
@@ -205,7 +205,7 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
                 )}
               </div>
             ) : (
-              <button className="capsule-btn signup" onClick={handleLoginClick}>Sign Up</button>
+              <button className="capsule-btn signup desktop-signup" onClick={handleLoginClick}>Sign Up</button>
             )}
           </div>
         </div>
@@ -219,6 +219,17 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
       >
         <button className="close-btn" onClick={() => setIsMenuOpen(false)}>&times;</button>
         <ul className="menu-links">
+          {!currentUser && (
+            <li className="mobile-signup">
+              <a href="#login" onClick={(e) => {
+                e.preventDefault();
+                handleLoginClick();
+                setIsMenuOpen(false);
+              }}>
+                <User size={20} /> Sign Up / Login
+              </a>
+            </li>
+          )}
           <li>
             <a href="#home" onClick={(e) => {
               e.preventDefault();
