@@ -20,7 +20,7 @@
   position: relative;
   width: auto;
   min-width: 700px;
-  height: 64px;
+  height: 56px;
   background-color: #1f1f1f;
   border-radius: 50px;
   padding: 8px;
@@ -38,8 +38,8 @@
 }
 
 .floating-menu-btn {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background-color: #1f1f1f;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -638,15 +638,15 @@
   }
 
   .floating-menu-btn {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
   .navbar.capsule {
     min-width: 0;
     width: 100%;
     padding: 4px 8px;
-    height: 48px;
+    height: 44px;
   }
   
   .navbar-wrapper:has(.search-container.capsule-search:hover) .navbar.capsule,
