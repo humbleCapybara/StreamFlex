@@ -162,7 +162,7 @@ function App() {
               config={gridConfig} 
               onMediaClick={handleMediaClick}
             />
-          ) : (
+          ) : ['movies', 'tvShows', 'documentaries'].includes(activeView) ? (
             <>
               <HeroSlider activeView={activeView} onMediaClick={handleMediaClick} />
               
@@ -199,6 +199,10 @@ function App() {
           )}
         </div>
             </>
+          ) : (
+            <div className="empty-state-page">
+              <h2>Empty</h2>
+            </div>
           )}
         </div>
       </main>

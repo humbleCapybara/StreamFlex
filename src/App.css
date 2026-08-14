@@ -16,3 +16,15 @@
   border-top: 1px solid var(--color-glass-border);
   margin-top: auto;
 }
+
+.empty-state-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  color: var(--color-text-secondary);
+  letter-spacing: 2px;
+  padding-top: 100px;
+}

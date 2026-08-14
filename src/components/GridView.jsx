@@ -89,10 +89,6 @@ const GridView = ({ config, onMediaClick }) => {
       
       {isLoading ? (
         <div className="grid-loader"><div className="spinner"></div></div>
-      ) : items.length === 0 ? (
-        <div className="empty-state">
-          <p>nothing to see here</p>
-        </div>
       ) : (
         <div className={`grid-container ${config.isBento ? 'bento' : ''}`}>
           {items.map((item, index) => {
