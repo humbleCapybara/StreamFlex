@@ -624,7 +624,8 @@
     display: block;
   }
 
-  .desktop-only-search {
+  .desktop-only-search,
+  .capsule-right {
     display: none !important;
   }
 
