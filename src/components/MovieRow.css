@@ -96,16 +96,16 @@
 
 @media (max-width: 768px) {
   .movie-row-container {
-    padding: 0 20px;
+  .row-title {
+    font-size: 18px;
+    padding: 0 5%;
   }
-  .poster-card {
-    min-width: 200px;
-    max-width: 200px;
+  
+  .slider-container {
+    padding: 0 5%;
   }
-  .poster-img {
-    height: 120px;
-  }
+  
   .slider-btn {
-    display: none; /* Hide on mobile */
+    display: none; /* Rely on native touch scrolling on mobile */
   }
 }

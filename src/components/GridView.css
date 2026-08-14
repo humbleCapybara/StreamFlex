@@ -310,3 +310,43 @@
   color: var(--color-text-secondary);
   font-weight: 600;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-view {
+    padding: 100px 15px 40px;
+  }
+  
+  .grid-header {
+    margin-bottom: 24px;
+  }
+  
+  .grid-header h1 {
+    font-size: 28px;
+  }
+  
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  
+  .grid-header h1 {
+    font-size: 24px;
+  }
+}

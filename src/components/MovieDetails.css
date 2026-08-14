@@ -504,3 +504,101 @@
   from { opacity: 1; }
   to { opacity: 0.5; }
 }
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1024px) {
+  .details-content {
+    padding: 100px 40px 40px;
+  }
+  
+  .details-main {
+    gap: 40px;
+  }
+  
+  .details-poster {
+    width: 300px;
+  }
+  
+  .details-title {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 768px) {
+  .details-content {
+    padding: 80px 20px 40px;
+  }
+  
+  .btn-back {
+    top: 16px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+  }
+  
+  .details-main {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .details-poster {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .details-right {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .details-meta, .details-genres, .details-actions {
+    justify-content: center;
+  }
+  
+  .details-title {
+    font-size: 42px;
+  }
+  
+  .details-overview p {
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .details-cast h3, .comments-section h3, .details-overview h3 {
+    text-align: left;
+  }
+  
+  .cast-nav-btn {
+    display: none; /* Rely on horizontal scrolling on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .details-title {
+    font-size: 32px;
+  }
+  
+  .details-meta {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .details-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-play-trailer {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .details-cast {
+    margin-top: 50px;
+  }
+}

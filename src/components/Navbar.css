@@ -599,18 +599,79 @@
   cursor: default;
 }
 
+/* Responsive Design */
 @media (max-width: 900px) {
-  .navbar-quick-links {
+  .capsule-center {
     display: none;
+  }
+  
+  .menu-toggle {
+    display: flex;
   }
 }
 
 @media (max-width: 768px) {
-  .search-container {
-    display: none;
-  }
   .navbar {
-    padding: 0 20px;
+    padding: 10px 15px;
+  }
+  
+  .capsule-nav {
+    border-radius: 20px;
+    padding: 6px 12px;
+    height: 50px;
+    gap: 10px;
+  }
+  
+  .logo-text {
+    display: none; /* Hide text on small screens, keep icon */
+  }
+  
+  .capsule-search {
+    width: 140px;
+  }
+  
+  .search-input {
+    width: 100px;
+    font-size: 0.85rem;
+  }
+  
+  .capsule-search:focus-within {
+    width: 180px;
+  }
+  
+  .capsule-btn.signup {
+    padding: 6px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .user-profile-circle {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .profile-popup {
+    width: 180px;
+    right: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .capsule-nav {
+    padding: 4px 8px;
+    gap: 6px;
+  }
+  
+  .capsule-search {
+    width: 120px;
+    padding: 0 10px;
+  }
+  
+  .capsule-search:focus-within {
+    width: 150px;
+  }
+  
+  .search-input {
+    width: 80px;
   }
 }
 
