@@ -69,11 +69,13 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
   useEffect(() => {
     if (!searchQuery.trim()) {
       setSearchResults([]);
+      setIsSearching(false);
       return;
     }
 
+    setIsSearching(true);
+
     const delayDebounceFn = setTimeout(async () => {
-      setIsSearching(true);
       const data = await searchTMDB(searchQuery);
       if (data && data.results) {
         const filtered = data.results
@@ -169,7 +171,7 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
                     <div 
                       className="search-suggestion-item" 
                       key={result.id}
-                      onMouseDown={(e) => {
+                      onPointerDown={(e) => {
                         e.preventDefault();
                         setIsSearchFocused(false);
                         setSearchQuery('');
