@@ -202,10 +202,10 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
                     <img 
                       src={`https://image.tmdb.org/t/p/w92${currentUser.avatar.tmdb.avatar_path}`} 
                       alt="Profile" 
-                      style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }}
+                      style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }}
                     />
                   ) : (
-                    <User size={24} color="#fff" />
+                    <User size={24} color="#a0a0a0" />
                   )}
                 </div>
                 {isProfileOpen && (
