@@ -762,9 +762,11 @@
 .search-suggestions {
   position: absolute;
   top: 50px;
-  left: 0;
+  right: 0;
+  left: auto;
   width: 100%;
-  min-width: 320px;
+  min-width: 280px;
+  max-width: 90vw;
   background: rgba(15, 15, 15, 0.85);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
