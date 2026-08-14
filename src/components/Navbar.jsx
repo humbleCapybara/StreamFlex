@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   AlignLeft, Search, User, ChevronDown, ChevronUp,
-  Flame, Bookmark, History, Star, Film, Grid, Zap, Smile, Eye, Rocket, Heart, Ghost, Video, Tv, MoreHorizontal, ChevronRight, Settings, Orbit, Home
+  Flame, Bookmark, History, Star, Film, Grid, Zap, Smile, Eye, Rocket, Heart, Ghost, Video, Tv, MoreHorizontal, ChevronRight, Settings, Orbit, Home, X
 } from 'lucide-react';
 import { searchTMDB, getImageUrl, endpoints, createRequestToken } from '../utils/tmdb';
 import './Navbar.css';
@@ -58,6 +58,7 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
   const handleLoginClick = async () => {
     const token = await createRequestToken();
@@ -119,7 +120,7 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
 
   return (
     <>
-      <div className={`navbar-wrapper ${!isVisible ? 'hidden' : ''}`}>
+      <div className={`navbar-wrapper ${!isVisible ? 'hidden' : ''} ${isMobileSearchOpen ? 'mobile-search-active' : ''}`}>
       <button 
         className="floating-menu-btn"
         onClick={() => setIsMenuOpen(true)}
@@ -150,8 +151,7 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
         </div>
 
         <div className="capsule-right">
-          <div className={`search-backdrop ${isSearchFocused ? 'active' : ''}`} onPointerDown={() => setIsSearchFocused(false)}></div>
-          <div className={`search-container capsule-search ${isSearchFocused ? 'mobile-expanded' : ''}`}>
+          <div className="search-container capsule-search desktop-only-search">
             <Search className="search-icon" size={18} />
             <input 
               type="text" 
@@ -225,6 +225,67 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
           </div>
         </div>
       </nav>
+
+      <div className={`mobile-search-container ${isMobileSearchOpen ? 'expanded' : ''}`}>
+        {!isMobileSearchOpen ? (
+          <button className="mobile-search-toggle" onClick={() => setIsMobileSearchOpen(true)}>
+            <Search size={20} color="#a0a0a0" />
+          </button>
+        ) : (
+          <>
+            <Search className="search-icon" size={20} color="#a0a0a0" />
+            <input 
+              autoFocus
+              type="text" 
+              placeholder="Search..." 
+              className="search-input mobile-search-input" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={() => setIsSearchFocused(true)}
+              onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
+            />
+            <button className="close-search-btn" onClick={() => { setIsMobileSearchOpen(false); setSearchQuery(''); }}>
+              <X size={20} color="#a0a0a0" />
+            </button>
+
+            {isSearchFocused && searchQuery.trim() && (
+              <div className="search-suggestions glass">
+                {isSearching ? (
+                  <div className="search-suggestion-item loading">Searching...</div>
+                ) : searchResults.length > 0 ? (
+                  searchResults.map(result => (
+                    <div 
+                      className="search-suggestion-item" 
+                      key={result.id}
+                      onPointerDown={(e) => {
+                        e.preventDefault();
+                        setIsSearchFocused(false);
+                        setSearchQuery('');
+                        setIsMobileSearchOpen(false);
+                        onMediaClick && onMediaClick(result);
+                      }}
+                    >
+                      <img 
+                        src={getImageUrl(result.poster_path || result.backdrop_path, 'w92')} 
+                        alt={result.title || result.name} 
+                        className="suggestion-img"
+                      />
+                      <div className="suggestion-info">
+                        <div className="suggestion-title">{result.title || result.name}</div>
+                        <div className="suggestion-year">
+                          {(result.release_date || result.first_air_date || '').substring(0, 4)} • {result.media_type === 'movie' ? 'Movie' : 'TV'}
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="search-suggestion-item empty">No results found</div>
+                )}
+              </div>
+            )}
+          </>
+        )}
+      </div>
 
       </div>
 
