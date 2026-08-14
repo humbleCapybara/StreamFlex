@@ -102,6 +102,17 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
 
 
   return (
