@@ -234,33 +234,101 @@
   transform: scale(1.05);
 }
 
-.profile-popup {
-  position: absolute;
-  top: 120%;
-  right: 0;
-  width: max-content;
-  min-width: 150px;
-  padding: 12px 16px;
-  border-radius: 12px;
+.profile-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 320px;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 32px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  z-index: 1000;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  animation: fadeInDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.profile-username {
-  font-size: 1rem;
+.profile-modal-content .profile-username {
+  font-size: 32px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.profile-modal-content .profile-id {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 32px;
+}
+
+.btn-signout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: rgba(229, 9, 20, 0.1);
+  color: var(--color-accent-red);
+  border: 1px solid var(--color-accent-red);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 16px;
   font-weight: 600;
-  color: #fff;
-  margin: 0;
+  transition: all 0.3s ease;
 }
 
-.profile-id {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
+.btn-signout:hover {
+  background: var(--color-accent-red);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(229, 9, 20, 0.3);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.modal-close-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes fadeInDown {

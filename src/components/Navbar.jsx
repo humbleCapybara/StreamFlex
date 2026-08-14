@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   AlignLeft, Search, User, ChevronDown, ChevronUp,
-  Flame, Bookmark, History, Star, Film, Grid, Zap, Smile, Eye, Rocket, Heart, Ghost, Video, Tv, MoreHorizontal, ChevronRight, Settings, Orbit, Home, X
+  Flame, Bookmark, History, Star, Film, Grid, Zap, Smile, Eye, Rocket, Heart, Ghost, Video, Tv, MoreHorizontal, ChevronRight, Settings, Orbit, Home, X, LogOut
 } from 'lucide-react';
 import { searchTMDB, getImageUrl, endpoints, createRequestToken } from '../utils/tmdb';
 import './Navbar.css';
@@ -61,10 +61,20 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
   const handleLoginClick = async () => {
-    const token = await createRequestToken();
-    if (token) {
-      window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=${window.location.origin}`;
+    try {
+      const requestToken = await createRequestToken();
+      if (requestToken) {
+        const redirectUrl = encodeURIComponent(`${window.location.origin}${window.location.pathname}`);
+        window.location.href = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${redirectUrl}`;
+      }
+    } catch (err) {
+      console.error('Failed to initiate login', err);
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('currentUser');
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -208,12 +218,7 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
                     <User size={24} color="#a0a0a0" />
                   )}
                 </div>
-                {isProfileOpen && (
-                  <div className="profile-popup glass">
-                    <p className="profile-username">{currentUser.finalUsername || currentUser.username}</p>
-                    <p className="profile-id">TMDB ID: {currentUser.id}</p>
-                  </div>
-                )}
+                {/* Profile modal moved to root level */}
               </div>
             ) : (
               <button className="capsule-btn signup desktop-signup" onClick={handleLoginClick}>Sign Up</button>
@@ -374,6 +379,27 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
           </li>
         </ul>
       </div>
+
+      {/* Profile Modal */}
+      {isProfileOpen && currentUser && (
+        <div className="profile-modal-overlay" onClick={() => setIsProfileOpen(false)}>
+          <div className="profile-modal-content glass" onClick={e => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setIsProfileOpen(false)}>
+              <X size={24} />
+            </button>
+            <div className="profile-modal-header">
+              <h2 className="profile-username">{currentUser.finalUsername || currentUser.username}</h2>
+              <p className="profile-id">TMDB ID: {currentUser.id}</p>
+            </div>
+            <div className="profile-modal-actions">
+              <button className="btn-signout" onClick={handleLogout}>
+                <LogOut size={18} /> Sign Out
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </>
   );
 };
