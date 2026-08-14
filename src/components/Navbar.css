@@ -602,52 +602,57 @@
 /* Responsive Design */
 @media (max-width: 900px) {
   .capsule-center {
-    display: none;
+    padding: 0 8px;
   }
-  
-  .menu-toggle {
-    display: flex;
+  .navbar-quick-links a {
+    font-size: 12px;
+    padding: 4px 8px;
   }
 }
 
 @media (max-width: 768px) {
   .navbar.capsule {
-    min-width: 90%;
-    width: 90%;
-    padding: 8px 12px;
-    top: 72px; /* Push navbar down on mobile to make room for hamburger menu */
+    min-width: 95%;
+    width: 95%;
+    padding: 8px;
+    top: 16px;
   }
   
   .navbar.capsule:has(.search-container.capsule-search:hover),
   .navbar.capsule:has(.search-container.capsule-search:focus-within) {
-    min-width: 90%;
+    min-width: 95%;
   }
   
-  .floating-menu-btn {
-    top: 16px;
-    left: 16px;
-    width: 44px;
-    height: 44px;
-    z-index: 10000;
+  .menu-toggle-btn {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 4px;
   }
   
   .capsule-left {
     gap: 8px;
   }
   
-  .capsule-nav {
-    border-radius: 20px;
-    padding: 6px 12px;
+  .navbar-quick-links a {
+    font-size: 10px;
+    padding: 4px;
+  }
     height: 50px;
     gap: 10px;
   }
   
   .logo-text {
-    display: none; /* Hide text on small screens, keep icon */
+    display: none;
   }
   
   .capsule-search {
-    width: 140px;
+    width: 36px;
+    height: 36px;
+    padding: 0 8px;
   }
   
   .search-input {
@@ -656,7 +661,7 @@
   }
   
   .capsule-search:focus-within {
-    width: 180px;
+    width: 150px;
   }
   
   .capsule-btn.signup {

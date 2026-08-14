@@ -106,17 +106,17 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
 
   return (
     <>
-      <button 
-        className={`floating-menu-btn ${!isVisible ? 'hidden' : ''}`}
-        onClick={() => setIsMenuOpen(true)}
-      >
-        <AlignLeft size={24} color="#fff" />
-      </button>
-
       <nav className={`navbar capsule ${!isVisible ? 'navbar-hidden' : ''}`}>
         <div className="capsule-left">
+          <button 
+            className="menu-toggle-btn"
+            onClick={() => setIsMenuOpen(true)}
+            aria-label="Open Menu"
+          >
+            <AlignLeft size={24} color="#fff" />
+          </button>
           <div className="logo-circle">
-            <Orbit size={28} color="#1a1a1a" strokeWidth={2.5} />
+            <Orbit size={24} color="#1a1a1a" strokeWidth={2.5} />
           </div>
         </div>
 
