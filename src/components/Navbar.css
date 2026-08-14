@@ -133,14 +133,15 @@
   border: none;
   color: #fff;
   font-size: 14px;
-  width: 100%;
+  width: 0;
   outline: none;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .search-container.capsule-search:hover .search-input, .search-container.capsule-search:focus-within .search-input {
   opacity: 1;
+  width: 100%;
 }
 
 .search-input::placeholder {
