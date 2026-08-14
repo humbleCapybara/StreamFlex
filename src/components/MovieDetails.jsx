@@ -225,14 +225,14 @@ const MovieDetails = ({ media, onBack, currentUser }) => {
                 onClick={toggleWatchlist}
               >
                 <Bookmark size={20} fill={inWatchlist ? 'currentColor' : 'none'} /> 
-                {inWatchlist ? 'In Watchlist' : 'Add to Watchlist'}
+                <span className="action-text">{inWatchlist ? 'In Watchlist' : 'Add to Watchlist'}</span>
               </button>
               <button 
                 className={`btn-action-full glass ${isLiked ? 'active' : ''}`}
                 onClick={toggleLiked}
               >
                 <Heart size={20} fill={isLiked ? 'currentColor' : 'none'} /> 
-                {isLiked ? 'Liked' : 'Like'}
+                <span className="action-text">{isLiked ? 'Liked' : 'Like'}</span>
               </button>
             </div>
 
