@@ -611,8 +611,28 @@
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 10px 15px;
+  .navbar.capsule {
+    min-width: 90%;
+    width: 90%;
+    padding: 8px 12px;
+    top: 72px; /* Push navbar down on mobile to make room for hamburger menu */
+  }
+  
+  .navbar.capsule:has(.search-container.capsule-search:hover),
+  .navbar.capsule:has(.search-container.capsule-search:focus-within) {
+    min-width: 90%;
+  }
+  
+  .floating-menu-btn {
+    top: 16px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+    z-index: 10000;
+  }
+  
+  .capsule-left {
+    gap: 8px;
   }
   
   .capsule-nav {

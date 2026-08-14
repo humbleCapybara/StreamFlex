@@ -221,18 +221,18 @@ const MovieDetails = ({ media, onBack, currentUser }) => {
                 <button className="btn-play-trailer disabled">No Trailer</button>
               )}
               <button 
-                className={`btn-circle-action glass ${inWatchlist ? 'active' : ''}`}
+                className={`btn-action-full glass ${inWatchlist ? 'active' : ''}`}
                 onClick={toggleWatchlist}
-                title={inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
               >
-                <Bookmark size={24} fill={inWatchlist ? 'currentColor' : 'none'} /> 
+                <Bookmark size={20} fill={inWatchlist ? 'currentColor' : 'none'} /> 
+                {inWatchlist ? 'In Watchlist' : 'Add to Watchlist'}
               </button>
               <button 
-                className={`btn-circle-action glass ${isLiked ? 'active' : ''}`}
+                className={`btn-action-full glass ${isLiked ? 'active' : ''}`}
                 onClick={toggleLiked}
-                title={isLiked ? "Unlike" : "Like"}
               >
-                <Heart size={24} fill={isLiked ? 'currentColor' : 'none'} /> 
+                <Heart size={20} fill={isLiked ? 'currentColor' : 'none'} /> 
+                {isLiked ? 'Liked' : 'Like'}
               </button>
             </div>
 
