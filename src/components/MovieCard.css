@@ -156,3 +156,30 @@
 
 .btn-bento-watchlist.active { color: #a855f7; opacity: 1; }
 .btn-bento-liked.active { color: #f43f5e; opacity: 1; }
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+  .poster-card.row-mode {
+    min-width: 140px;
+    max-width: 140px;
+  }
+  
+  .row-mode .poster-img-container {
+    height: 210px;
+  }
+  
+  .poster-info {
+    padding: 10px;
+  }
+  
+  .movie-title {
+    font-size: 14px;
+  }
+  
+  .btn-action-small {
+    width: 28px;
+    height: 28px;
+  }
+}
