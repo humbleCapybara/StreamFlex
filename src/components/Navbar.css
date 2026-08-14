@@ -99,8 +99,8 @@
   padding: 0 12px;
   margin: 0;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   position: relative;
   overflow: visible;
   cursor: pointer;
