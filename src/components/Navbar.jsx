@@ -148,7 +148,7 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
 
         <div className="capsule-right">
           <div className="search-container capsule-search desktop-only-search">
-            <Search className="search-icon" size={18} />
+            <Search className="search-icon" size={24} />
             <input 
               type="text" 
               placeholder="Search..." 
@@ -202,10 +202,10 @@ const Navbar = ({ activeView, setActiveView, onMediaClick, onOpenGrid, currentUs
                     <img 
                       src={`https://image.tmdb.org/t/p/w92${currentUser.avatar.tmdb.avatar_path}`} 
                       alt="Profile" 
-                      style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }}
+                      style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }}
                     />
                   ) : (
-                    <User size={20} color="#fff" />
+                    <User size={24} color="#fff" />
                   )}
                 </div>
                 {isProfileOpen && (
